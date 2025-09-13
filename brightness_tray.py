@@ -51,7 +51,7 @@ class BrightnessTrayApp:
         return image
     
     def setup_logging(self):
-        if not sys.stdout.isatty():
+        if sys.stdout is None or not sys.stdout.isatty():
             logging.getLogger('werkzeug').setLevel(logging.ERROR)
     
     def start_server(self):
